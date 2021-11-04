@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import FindGuests from './FindGuests';
+import Parent from './props/Parent';
 
 interface people {
     name: string,
@@ -70,6 +71,7 @@ const App: React.FC = (): React.ReactElement => {
                 </form>        
             </div>
             <FindGuests />
+            <Parent />
         </>
     )
 }
