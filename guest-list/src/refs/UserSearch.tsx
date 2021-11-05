@@ -28,14 +28,24 @@ const UserSearch = () => {
     function searchUserHandler() {
         const searchedUser = users.find(user => user.name === name);
         if(searchedUser === undefined) {
-            return setFoundUser(undefined);
+            setFoundUser(undefined);
         }
-        setFoundUser(searchedUser);
+        else {
+            setFoundUser(searchedUser);
+        }
+        setName('');
+        if(inputRef.current) inputRef.current.focus();
     }
 
     return (
         <div>
-            <input ref={inputRef} name="user-name" type="text" onChange={userNameHandler} />
+            <input 
+                ref={inputRef} 
+                name="user-name" 
+                type="text" 
+                onChange={userNameHandler} 
+                value={name}
+            />
             <button type="button" onClick={searchUserHandler}>Find User</button>
             {foundUser && <div>
                 <p>Name: {foundUser.name}</p>
